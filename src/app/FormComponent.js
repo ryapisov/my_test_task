@@ -7,6 +7,19 @@ function FormComponent() {
   const [passwordDirty, setPasswordDirty] = React.useState(false)
   const [userNameError, setUserNameError] = React.useState('имя пользователя не должно быть пустым')
   const [passwordError, setPasswordError] = React.useState('пароль не может быть пустым')
+  const [formValid, setFormValid] = React.useState(false)
+  
+  /* 
+    наблюдает за кнопкой, если
+    ошибок нет, делает кнопку активной
+  */
+  React.useEffect(() => {
+    if(userNameError || passwordError){
+      setFormValid(false)
+    }else{
+      setFormValid(true)
+    }
+  }, [userNameError, passwordError])
 
   /*
     установка значения в поле "input"
@@ -83,6 +96,7 @@ function FormComponent() {
         type="password"
       />
       <button
+        disabled={!formValid}
         type="submit"
       >Войти
       </button>
