@@ -8,22 +8,44 @@ function FormComponent() {
   const [userNameError, setUserNameError] = React.useState('имя пользователя не должно быть пустым')
   const [passwordError, setPasswordError] = React.useState('пароль не может быть пустым')
 
+  /*
+    установка значения в поле "input"
+    а также валидация значения username,
+  */
   const usernameHandler = (e) =>{
     const {value} = e.target
     setUserName(value)
-    //TODO: validation
-  }
-
-  const passwordHandler = (e) =>{
-    const {value} = e.target
-    setPassword(value)
-    //TODO: validation
+    const re = /^[\w+_@.]{1,150}$/
+    const isValid = re.test(String(value).toLocaleLowerCase())
+    if (isValid){
+      setUserNameError("")
+    }
+    else {
+      setUserNameError("не корректный пользователь")
+    }
   }
 
   /*
-    при потере фокуса в поле "input"
-    заставляет позаказать уведомление
-    о том, что поле пусто.
+    установка значения в поле "input"
+    а также валидация password
+  */
+  const passwordHandler = (e) =>{
+    const {value} = e.target
+    setPassword(value)
+    const re = /^[\w=.@$#><&!]{1,128}$/
+    const isValid = re.test(String(value).toLocaleLowerCase())
+    if(isValid){
+      setPasswordError("")
+    }
+    else {
+      setPasswordError("не корректный пароль")
+    }
+  }
+
+  /*
+    при потере фокуса в текстовом поле "input",
+    заставляет позаказать уведомление о том, 
+    что поле пусто.
   */
   const blurHandler = (e) => {
     const {name} = e.target
@@ -51,7 +73,7 @@ function FormComponent() {
         name="username"
         type="text"
       />
-       {(passwordDirty && passwordError ) && <>{passwordError}</>}
+      {(passwordDirty && passwordError ) && <>{passwordError}</>}
       <input 
         value={password}
         onBlur={(e) => blurHandler(e)}
