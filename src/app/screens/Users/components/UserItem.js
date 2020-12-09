@@ -4,6 +4,7 @@ import iconSaveSvg from '../../../icons/save.svg'
 import iconDeleteSvg from '../../../icons/delete.svg'
 import iconCloseSvg from '../../../icons/close.svg'
 import {Input} from './Input'
+import {ErrorsMessage} from './ErrorsMessage'
 
 export const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
@@ -49,13 +50,7 @@ export const UserItem = (props) => {
 
   return (
     <>
-      { false ? 
-      <div className="error">
-        <span>Поле логин не должно быть пустым</span>
-        <span>Поле пароль не должно быть пустым</span>
-      </div>
-      : null
-      }
+      { 1 ? <ErrorsMessage /> : null}
       <form onSubmit={(e)=> updateUserFormHandler(e)}>
         <span>ID: {props.id}</span>
         <input type="hidden" name="userId" value={props.id} />
