@@ -8,14 +8,6 @@
   font-family: 'Noto Sans', sans-serif;
 }
 
-.close{
-  padding: 8px 20px;
-  position: fixed;
-  top:10px;
-  right:10px;
-  background-color: rgb(1, 204, 1);
-}
-
 .wrapper{
   width: 100%; 
   background-color: #333;
@@ -53,44 +45,19 @@ input, button{
 	display:inline-block;
 	outline:none;
 	padding: 9px 18px;
-	margin-right: 2px;
+	margin-right:10px;
   border: none;
   font-style: italic;
 }
 
-form{
-  margin-bottom: 16px;
-}
-
-.new-user form{
-  margin: 50px;
-}
-
-form span{
-  margin-right: 10px;
-}
-
-button img{
-  width: 18px;
-}
-
-.buttons-sort{
-  margin: 20px;
-}
-
-button:hover{
-  background:rgb(33, 142, 161);
-}
-
-
 input{
-  width: 12%;
+	width: 30%;
   background-color: #7ec4ce;
   font-style: italic;
 }
 
 input[placeholder] {
-  color: #01353d;
+  color: #00515e;
 }
 
 button {
@@ -101,8 +68,6 @@ button {
 	color: #fff;
   background-color: #7ec4ce;
 }	
-
-
 
 /* Mobile
 ---------------------------------- */

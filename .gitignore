@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/basket
+src/app/basket
 
 # production
 /build
