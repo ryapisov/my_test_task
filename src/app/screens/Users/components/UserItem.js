@@ -2,12 +2,13 @@ import React, {useState} from 'react'
 import iconEditSvg from '../../../icons/edit.svg'
 import iconSaveSvg from '../../../icons/save.svg'
 import iconDeleteSvg from '../../../icons/delete.svg'
+import iconCloseSvg from '../../../icons/close.svg'
 
 export const UserItem = (props) => {
-  const [checked, setChecked] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
 
   const {id, username, first_name, last_name,
-    is_active, last_login, is_superuser
+    last_login, is_superuser
   } = props
 
   const updateSaveHandler = (data) => {
@@ -25,6 +26,14 @@ export const UserItem = (props) => {
     alert('Удаление пользователя')
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+
+    // TODO  
+    alert('')
+    setIsEdit(false)
+  }
+
   return (
     <>
       { false ? 
@@ -35,18 +44,33 @@ export const UserItem = (props) => {
       : null
       }
 
-      <div style={{margin:'5px'}}>
+      <form onSubmit={(e)=> submitHandler(e)}>
         <span>ID: {id}</span>
-        <input type="checkbox" checked={checked}/> 
+        <input type="checkbox" />
+        <input type="hidden" value={id} name="userId" />
         <input type="text" placeholder="username" value={username} />
         <input type="text" placeholder="first_name" value={first_name} />
         <input type="text" placeholder="last_name" value={last_name} />
         <input type="text" placeholder="last_login" value={last_login} />
-
-        <button type="submit" onClick={()=>editUser(props)} title="Edit"><img src={iconEditSvg}/></button>
-        <button type="submit" onClick={()=>updateSaveHandler(props)} title="Save"><img src={iconSaveSvg}/></button>
-        <button type="submit" onClick={()=>{}} title="Edit"><img src={iconDeleteSvg}/></button>
-      </div>
+        {
+          !isEdit ?
+            <button type="submit" title="Edit" onClick={()=>setIsEdit(!isEdit)}>
+              <img src={iconEditSvg}/>
+            </button>
+        : 
+          <>
+            <button type="submit" title="Save" >
+              <img src={iconSaveSvg}/>
+            </button>
+            <button type="submit" title="Edit" >
+              <img src={iconDeleteSvg}/>
+            </button>
+            <button type="submit" title="Edit" onClick={()=>setIsEdit(!isEdit)}>
+              <img src={iconCloseSvg}/>
+            </button>
+          </>
+       }
+      </form>
     </>
   )
 }
