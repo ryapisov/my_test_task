@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {fetchUsers, rewriteUsers, addUser} from '../../../store/actions/usersActions'
 import {UserNew} from './UserNew'
 import {UserItem} from './UserItem'
+import {Button} from './Button'
 
 export const UserList = () => {
   const dispatch = useDispatch()
@@ -10,7 +11,7 @@ export const UserList = () => {
 
   useEffect(()=>{
     dispatch(fetchUsers())
-  }, [])
+  }, [dispatch])
   
   const sortBy_Id = () => {
     const newUsers= users.sort((prev, next) => prev.id - next.id)
@@ -26,29 +27,23 @@ export const UserList = () => {
   }
 
   const create_User = () => {
-    
     dispatch(addUser)
   }
 
   return (
     <>
       <UserNew />
-      
       <div className="buttons-sort">
-        <button 
-          type="submit" 
+        <Button 
+          text="Сортировать по ID" 
+          onClick={()=>sortBy_Id()} 
           title="Sort by id"
-          onClick={()=> sortBy_Id()}
-        >
-        Сортировать по ID
-        </button>
-        <button 
-          type="submit"
+        />
+        <Button 
+          text="Сортировать по Username" 
+          onClick={()=>sortBy_Username()} 
           title="Sort By username"
-          onClick={()=> sortBy_Username()}
-        >
-        Сортировать по Username
-        </button>
+        />
       </div>
       {users.map((user, i)=> <UserItem key={i} {...user}/>)}
     </>

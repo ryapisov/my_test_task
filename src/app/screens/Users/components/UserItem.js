@@ -5,6 +5,7 @@ import iconDeleteSvg from '../../../icons/delete.svg'
 import iconCloseSvg from '../../../icons/close.svg'
 import {Input} from './Input'
 import {ErrorsMessage} from './ErrorsMessage'
+import {Button} from './Button'
 
 export const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
@@ -61,20 +62,29 @@ export const UserItem = (props) => {
 
         {
           !isEdit ?
-            <button type="submit" title="Edit" onClick={openEditHandler}>
-              <img src={iconEditSvg} alt="edit" />
-            </button>
+            <Button 
+              type="submit" 
+              title="Edit"
+              onClick={openEditHandler} 
+              img={iconEditSvg} 
+            />
         :
           <>
-            <button type="submit" title="Save" >
-              <img src={iconSaveSvg} alt="save"/>
-            </button>
-            <button type="submit" title="Delete" onClick={()=>deleteUserHandler(props.id)}>
-              <img src={iconDeleteSvg} alt="delete"/>
-            </button>
-            <button type="submit" title="Cancel" onClick={closeEditHandler}>
-              <img src={iconCloseSvg} alt="cancel" />
-            </button>
+            <Button 
+              type="submit" 
+              img={iconSaveSvg} 
+              title="Save" 
+            />
+            <Button  
+              img={iconDeleteSvg} 
+              title="Delete" 
+              onClick={()=>deleteUserHandler(props.id)}
+            />
+            <Button 
+              img={iconCloseSvg} 
+              title="Cancel" 
+              onClick={closeEditHandler} 
+            />
           </>
        }
       </form>
