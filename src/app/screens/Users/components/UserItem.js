@@ -3,13 +3,14 @@ import iconEditSvg from '../../../icons/edit.svg'
 import iconSaveSvg from '../../../icons/save.svg'
 import iconDeleteSvg from '../../../icons/delete.svg'
 import iconCloseSvg from '../../../icons/close.svg'
+import {Input} from './Input'
 
 export const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
-  const [userName, setUserName] = useState(props.username || '')
-  const [firstName, setFirstName] = useState(props.first_name || '')
+  const [userName, setUserName] = useState(props.username || ' ')
+  const [firstName, setFirstName] = useState(props.first_name || ' ')
   const [lastName, setLastName] = useState(props.last_name || '')
-  const [lastLogin, setLastLogin] = useState(props.last_login || '')
+  const [lastLogin, setLastLogin] = useState(props.last_login || ' ')
   // TODO: is_superuser ??
   // TODO: is_active  ??
 
@@ -63,30 +64,11 @@ export const UserItem = (props) => {
           name="isActive" 
           onChange={()=>setIsEdit(!isEdit)} checked={isEdit} 
         />
-        <input 
-          type="text" 
-          placeholder="username" 
-          onChange={(e)=> isEdit ? setUserName(e.target.value) : null} 
-          value={userName} 
-        />
-        <input 
-          type="text" 
-          placeholder="first_name"
-          onChange={(e)=> isEdit ? setFirstName(e.target.value) : null}
-          value={firstName} 
-        />
-        <input 
-          type="text" 
-          placeholder="last_name"
-          onChange={(e)=> isEdit ? setLastName(e.target.value) : null}
-          value={lastName} 
-        />
-        <input 
-          type="text" 
-          placeholder="last_login" 
-          onChange={(e)=> isEdit ? setLastLogin(e.target.value) : null}
-          value={lastLogin} 
-        />
+
+        <Input onChange={setUserName} value={userName} record={isEdit} />
+        <Input onChange={setFirstName} value={firstName} record={isEdit} />
+        <Input onChange={setLastName} value={lastName} record={isEdit} />
+        <Input onChange={setLastLogin} value={lastLogin} record={isEdit} />
 
         {
           !isEdit ?
