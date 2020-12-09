@@ -59,16 +59,10 @@ export const UserItem = (props) => {
       <form onSubmit={(e)=> updateUserFormHandler(e)}>
         <span>ID: {props.id}</span>
         <input type="hidden" name="userId" value={props.id} />
-        <input 
-          type="checkbox" 
-          name="isActive" 
-          onChange={()=>setIsEdit(!isEdit)} checked={isEdit} 
-        />
-
-        <Input onChange={setUserName} value={userName} record={isEdit} />
-        <Input onChange={setFirstName} value={firstName} record={isEdit} />
-        <Input onChange={setLastName} value={lastName} record={isEdit} />
-        <Input onChange={setLastLogin} value={lastLogin} record={isEdit} />
+        <Input onChange={setUserName} value={userName} name="userName" record={isEdit} />
+        <Input onChange={setFirstName} value={firstName} name="firstName" record={isEdit} />
+        <Input onChange={setLastName} value={lastName} name="lastName" record={isEdit} />
+        <Input onChange={setLastLogin} value={lastLogin} name="lastLogin" record={isEdit} />
 
         {
           !isEdit ?
