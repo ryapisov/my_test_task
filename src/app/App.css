@@ -8,12 +8,12 @@
   font-family: 'Noto Sans', sans-serif;
 }
 
-.close{
+.token-message{
   padding: 8px 20px;
   position: fixed;
   top:10px;
   right:10px;
-  background-color: rgb(1, 204, 1);
+  background-color: rgb(197, 14, 14);
 }
 
 .wrapper{

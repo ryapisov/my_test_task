@@ -1,16 +1,24 @@
 import React from 'react'
 import ErrorMessage from '../../components/ErrorMessage'
+import TokenMessage from '../../components/TokenMessage'
 import useInputValidation from '../../hooks/useInputValidation'
 
-const Auth = () => {
-  const userName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'username')
-  const password = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'password')
+const Auth = () => { // {username:'test_super', password:'Nf<U4f<rDbtDxAPn'}
+  const userName = useInputValidation('test_super', {isEmpty:true, minLength:3, isUserName:true}, 'username')
+  const password = useInputValidation('Nf<U4f<rDbtDxAPn', {isEmpty:true, minLength:5, maxLength:30}, 'password')
   
+  const submitHandler = (e) => {
+    e.preventDefault()
+    // TODO
+    alert('отправка формы')
+  }
+
   return (
     <div>
-      <form>
-        <ErrorMessage text={userName.isDirty && userName.message} />
-        <ErrorMessage text={password.isDirty && password.message} />
+      {false && <TokenMessage text={'sadf'} />}
+      <ErrorMessage text={userName.isDirty && userName.message} />
+      <ErrorMessage text={password.isDirty && password.message} />
+      <form onSubmit={(e)=>submitHandler(e)}>
         <input 
           value={userName.value} 
           onBlur={(e)=> userName.onBlur(e)}
@@ -28,7 +36,6 @@ const Auth = () => {
         />
         <button 
           type="submit"
-          onClick={()=>{}}
           disabled={!userName.inputValid || !password.inputValid} 
         >Войти
         </button>

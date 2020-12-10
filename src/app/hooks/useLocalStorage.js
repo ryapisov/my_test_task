@@ -1,6 +1,10 @@
 import React from 'react'
 
-// const [token, setToken] = useLocalStorage('token', 'foo data')
+/**
+ *  const [token, setToken] = useLocalStorage('token', 'foo data')
+ * 
+ * 
+ * */ 
 
 export const useLocalStorage = (key, initialValue='') => {
   const [value, setValue] = React.useState(()=>{

@@ -9,7 +9,6 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App"> 
-        <div className="close">выйти</div>
         <div className="wrapper">
            <div className="newsletter"> 
             <h2 className="title">
