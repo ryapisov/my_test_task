@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import iconAddUserSvg from '../../icons/addUser.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconCloseSvg from '../../icons/close.svg'
-import {Input} from '../../components/Input'
-import {ErrorMessage} from '../../components/ErrorMessage'
-import {Button} from '../../components/Button'
+import Input from '../../components/Input'
+import ErrorMessage from '../../components/ErrorMessage'
+import Button from '../../components/Button'
 
 const NewUserForm = () => {
   const [userName, setUserName] = useState('user name')

@@ -1,5 +1,5 @@
 import React from 'react'
-import {ErrorMessage} from '../../../components/ErrorMessage'
+import ErrorMessage from '../../../components/ErrorMessage'
 import useInputValidation from '../../../hooks/useInputValidation'
 
 export const Form = () => {

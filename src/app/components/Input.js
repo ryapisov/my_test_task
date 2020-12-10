@@ -1,7 +1,7 @@
 import { findAllByPlaceholderText } from '@testing-library/react'
 import React from 'react'
 
-export const Input = (props) => {
+const Input = (props) => {
   const { type, record, name, onChange, value,  placeholder} = props
   return (
     <input 
@@ -14,3 +14,5 @@ export const Input = (props) => {
     />
   )
 }
+
+export default Input

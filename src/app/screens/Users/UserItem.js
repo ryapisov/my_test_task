@@ -3,11 +3,11 @@ import iconEditSvg from '../../icons/edit.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconDeleteSvg from '../../icons/delete.svg'
 import iconCloseSvg from '../../icons/close.svg'
-import {Input} from '../../components/Input'
-import {ErrorMessage} from '../../components/ErrorMessage'
-import {Button} from '../../components/Button'
+import Input from '../../components/Input'
+import ErrorMessage from '../../components/ErrorMessage'
+import Button from '../../components/Button'
 
-export const UserItem = (props) => {
+const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
   const [userName, setUserName] = useState(props.username || ' ')
   const [firstName, setFirstName] = useState(props.first_name || ' ')
@@ -109,3 +109,5 @@ export const UserItem = (props) => {
     </>
   )
 }
+
+export default UserItem 

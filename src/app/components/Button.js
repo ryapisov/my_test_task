@@ -1,8 +1,7 @@
 import React from 'react'
 
-export const Button = (props) => {
+const Button = (props) => {
   const {children, text, title, type, onClick, img} = props
-  
   return (
     <button 
       onClick={onClick}
@@ -11,4 +10,6 @@ export const Button = (props) => {
     >{children || text}{img ? <img src={img} alt={''} /> : '' }
     </button>
   )
-} 
+}
+
+export default Button
