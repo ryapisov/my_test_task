@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {GET_TOKEN} from '../types'
-import {isStatusLoading} from './usersActions'
+import {isStatusLoading} from './actions'
 
 const PATH = 'api-token-auth/'
 const PROTOCOL = 'http://'

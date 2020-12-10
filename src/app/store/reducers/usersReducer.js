@@ -36,22 +36,6 @@ export const usersReducer = (state = defaultState, action) => {
   }
 }
 
-
-// import {
-//   ADD_MANY_CUSTOMERS, 
-//   ADD_CUSTOMER, 
-//   REMOVE_CUSTOMERS
-// } from '../types'
-
-// const defaultState = {
-//   customers: [
-//     {name:'one', id:1}, 
-//     {name:"two", id:2}, 
-//     {name:'one1', id:3}, 
-//     {name:"tw1o", id:4}
-//   ]
-// }
-
 // export const customersReducer = (state = defaultState, action) => {
 //   switch (action.type){
 //     case ADD_MANY_CUSTOMERS:

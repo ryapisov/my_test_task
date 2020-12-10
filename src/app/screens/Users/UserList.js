@@ -7,7 +7,7 @@ import Button from '../../components/Button'
 const UserList = () => {
   const dispatch = useDispatch()
   const users = useSelector((state)=> state.users.users )
-
+  
   useEffect(()=>{
     dispatch(fetchUsers())
   }, [dispatch])

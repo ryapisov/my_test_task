@@ -1,30 +1,34 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchToken} from '../../store/actions/authActionsAPI'
-import {isStatusLoading} from '../../store/actions/authActions'
-import ErrorMessage from '../../components/ErrorMessage'
-import TokenMessage from '../../components/TokenMessage'
-import LoadingMessage from '../../components/LoadingMessage'
+import {isStatusLoading} from '../../store/actions/actions'
 import {useInputValidation} from '../../hooks/useInputValidation'
 import {useLocalStorage} from '../../hooks/useLocalStorage'
 import {configValid} from '../../configs/configValid'
+import ErrorMessage from '../../components/ErrorMessage'
+import TokenMessage from '../../components/TokenMessage'
+import LoadingMessage from '../../components/LoadingMessage'
 
 const Auth = () => {
   const userName = useInputValidation('test_super', configValid.username)
   const password = useInputValidation('Nf<U4f<rDbtDxAPn', configValid.password)
+  const [ tokenLocalStorage,  setTokenLocalStorage] = useLocalStorage('token', '')
+  
   const dispatch = useDispatch()
   const store = useSelector(state => state.auth)
 
-  // TODO: добавить токен в localstorage
-
   const submitHandler = (e) => {
     e.preventDefault()
+    // установить индикатор загрузки
     dispatch(isStatusLoading(true))
+    // отправить данные на сервер
     dispatch(fetchToken({username:userName.value, password:password.value}))
+    // записать токен в хранилище
+    setTokenLocalStorage(store.token)
   }
 
   return (
-    <div> {store.token}
+    <>
       {store.isLoading && <LoadingMessage text={'Ждите, загрузка...'} />}
       {false && <TokenMessage text={'sadf'} />}
       <ErrorMessage text={userName.isDirty && userName.message} />
@@ -51,7 +55,7 @@ const Auth = () => {
         >Войти
         </button>
       </form>
-    </div>
+    </>
   )
 }
 
