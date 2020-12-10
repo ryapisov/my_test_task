@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
+import {useInputValidation} from '../../hooks/useInputValidation'
 import iconAddUserSvg from '../../icons/addUser.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconCloseSvg from '../../icons/close.svg'
 import ErrorMessage from '../../components/ErrorMessage'
 import Button from '../../components/Button'
-import useInputValidation from '../../hooks/useInputValidation'
 
 const NewUserForm = () => {
   const [isShow, setIsShow] = useState(true)
   const userName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'username')
-  const firstName = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'firstname')
   const lastName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'lastname')
+  const firstName = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'firstname')
   const lastLogin = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'lastlogin')
 
   const createUserHandler = (e) => {

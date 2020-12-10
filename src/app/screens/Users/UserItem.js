@@ -4,8 +4,8 @@ import iconSaveSvg from '../../icons/save.svg'
 import iconDeleteSvg from '../../icons/delete.svg'
 import iconCloseSvg from '../../icons/close.svg'
 import ErrorMessage from '../../components/ErrorMessage'
+import {useInputValidation} from '../../hooks/useInputValidation'
 import Button from '../../components/Button'
-import useInputValidation from '../../hooks/useInputValidation'
 
 const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)

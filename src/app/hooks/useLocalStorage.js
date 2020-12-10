@@ -3,7 +3,6 @@ import React from 'react'
 /**
  *  const [token, setToken] = useLocalStorage('token', 'foo data')
  * 
- * 
  * */ 
 
 export const useLocalStorage = (key, initialValue='') => {
@@ -11,7 +10,7 @@ export const useLocalStorage = (key, initialValue='') => {
     return localStorage.getItem(key) || initialValue
   })
   
-  useEffect(()=>{
+  React.useEffect(()=>{
     localStorage.setItem(key, value)
   }, [value, key])
   

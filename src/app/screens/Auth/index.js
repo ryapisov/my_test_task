@@ -1,20 +1,26 @@
 import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchToken} from '../../store/actions/authActions'
 import ErrorMessage from '../../components/ErrorMessage'
 import TokenMessage from '../../components/TokenMessage'
-import useInputValidation from '../../hooks/useInputValidation'
+import {useInputValidation} from '../../hooks/useInputValidation'
+import {useLocalStorage} from '../../hooks/useLocalStorage'
 
-const Auth = () => { // {username:'test_super', password:'Nf<U4f<rDbtDxAPn'}
+const Auth = () => {
   const userName = useInputValidation('test_super', {isEmpty:true, minLength:3, isUserName:true}, 'username')
   const password = useInputValidation('Nf<U4f<rDbtDxAPn', {isEmpty:true, minLength:5, maxLength:30}, 'password')
-  
+  const dispatch = useDispatch()
+  const store = useSelector(state => state.auth)
+
+  // TODO: добавить токен в localstorage
+
   const submitHandler = (e) => {
     e.preventDefault()
-    // TODO
-    alert('отправка формы')
+    dispatch(fetchToken({username:userName.value, password:password.value}))
   }
 
   return (
-    <div>
+    <div> {store.token}
       {false && <TokenMessage text={'sadf'} />}
       <ErrorMessage text={userName.isDirty && userName.message} />
       <ErrorMessage text={password.isDirty && password.message} />

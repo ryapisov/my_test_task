@@ -56,7 +56,7 @@ const useValidation = (value, validations, nameInput) => {
  * @param {*} validations
 */
 
-const useInputValidation = (initialValue, validations, nameInput) => {
+export const useInputValidation = (initialValue, validations, nameInput) => {
   const [value, setValue] = React.useState(initialValue)
   const [isDirty, setDirty] = React.useState(false)
   const valid = useValidation(value, validations, nameInput)
@@ -74,5 +74,3 @@ const useInputValidation = (initialValue, validations, nameInput) => {
     ...valid
   }
 }
-
-export default useInputValidation
