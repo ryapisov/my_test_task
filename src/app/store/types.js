@@ -9,3 +9,5 @@ export const GET_CASH = 'GET_CASH'
 export const ADD_MANY_USERS = 'ADD_MANY_USERS'
 //
 export const GET_TOKEN = 'GET_TOKEN'
+//
+export const IS_LOADING = 'IS_LOADING'

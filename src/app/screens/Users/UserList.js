@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {fetchUsers, rewriteUsers, addUser} from '../../store/actions/usersActions'
+import {fetchUsers, rewriteUsers, addUser} from '../../store/actions/usersActionsAPI'
 import UserItem from './UserItem'
 import Button from '../../components/Button'
 

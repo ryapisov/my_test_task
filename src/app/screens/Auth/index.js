@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchToken} from '../../store/actions/authActions'
+import {fetchToken} from '../../store/actions/authActionsAPI'
+import {isStatusLoading} from '../../store/actions/authActions'
 import ErrorMessage from '../../components/ErrorMessage'
 import TokenMessage from '../../components/TokenMessage'
+import LoadingMessage from '../../components/LoadingMessage'
 import {useInputValidation} from '../../hooks/useInputValidation'
 import {useLocalStorage} from '../../hooks/useLocalStorage'
 
@@ -16,11 +18,13 @@ const Auth = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
+    dispatch(isStatusLoading(true))
     dispatch(fetchToken({username:userName.value, password:password.value}))
   }
 
   return (
     <div> {store.token}
+      {store.isLoading && <LoadingMessage text={'Ждите, загрузка...'} />}
       {false && <TokenMessage text={'sadf'} />}
       <ErrorMessage text={userName.isDirty && userName.message} />
       <ErrorMessage text={password.isDirty && password.message} />
