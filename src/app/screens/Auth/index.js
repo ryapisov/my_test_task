@@ -1,10 +1,11 @@
 import React from 'react'
+import {Form} from './components/Form'
 
 const Auth = () => {
   return (
     <>
-      Авторизация
-      форма
+      <h3>Авторизация</h3>
+      <Form/>
     </>
   )
 }

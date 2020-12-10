@@ -1,8 +1,9 @@
 import React from 'react'
+import useInputValidation from '../../../hooks/useInputValidation'
 
 export const Form = () => {
-  const username = useInput('', {isEmpty:true, minLength:3, isUserName:true})
-  const password = useInput('', {isEmpty:true, minLength:5, maxLength:30})
+  const username = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true})
+  const password = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30})
   
   return (
     <div>
@@ -15,7 +16,6 @@ export const Form = () => {
           onChange={(e)=> username.onChange(e)}
           placeholder="Пользователь"
           name="username"
-          type="text"
         />
         {password.isDirty && password.isEmpty && <>password не может быть пустым</>}
         {password.isDirty && password.minLengthError && <>password пароль длинна менее 5 символов</>}

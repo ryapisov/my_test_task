@@ -3,6 +3,7 @@ import './App.css'
 import {Provider} from 'react-redux'
 import {store} from './store'
 import Users from './screens/Users'
+import Auth from './screens/Auth'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
               Тестовое задание в компанию 
               <a href="https://emphasoft.com">Emphasoft</a>
             </h2>
-            <Users/>
+            <Auth />
           </div>
         </div>
       </div>
