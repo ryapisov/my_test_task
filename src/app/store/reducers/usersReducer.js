@@ -6,11 +6,11 @@ const defaultState = {
   users:[
     {
       id: 0,
-      username: "string",
-      first_name: "string",
-      last_name: "string",
+      username: "USERNAME",
+      first_name: "FIRST NAME",
+      last_name: "LAST NAME",
+      last_login: "LAST_LOGIN",
       is_active: true,
-      last_login: "2020-12-08T08:03:55.107Z",
       is_superuser: true
     }
   ],

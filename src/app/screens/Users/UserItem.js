@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
-import iconEditSvg from '../../../icons/edit.svg'
-import iconSaveSvg from '../../../icons/save.svg'
-import iconDeleteSvg from '../../../icons/delete.svg'
-import iconCloseSvg from '../../../icons/close.svg'
-import {Input} from './Input'
+import iconEditSvg from '../../icons/edit.svg'
+import iconSaveSvg from '../../icons/save.svg'
+import iconDeleteSvg from '../../icons/delete.svg'
+import iconCloseSvg from '../../icons/close.svg'
+import {Input} from '../../components/Input'
 import {ErrorsMessage} from './ErrorsMessage'
-import {Button} from './Button'
+import {Button} from '../../components/Button'
 
 export const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
@@ -51,19 +51,37 @@ export const UserItem = (props) => {
 
   return (
     <>
-      { 1 ? <ErrorsMessage /> : null}
+      { false && <ErrorsMessage />}
       <form onSubmit={(e)=> updateUserFormHandler(e)}>
-        <span>ID: {props.id}</span>
+        {/* <span>ID: {props.id}</span> */}
         <input type="hidden" name="userId" value={props.id} />
-        <Input onChange={setUserName} value={userName} name="userName" record={isEdit} />
-        <Input onChange={setFirstName} value={firstName} name="firstName" record={isEdit} />
-        <Input onChange={setLastName} value={lastName} name="lastName" record={isEdit} />
-        <Input onChange={setLastLogin} value={lastLogin} name="lastLogin" record={isEdit} />
-
+        <Input 
+          onChange={setUserName} 
+          value={userName} 
+          name="userName" 
+          record={isEdit} 
+        />
+        <Input 
+          onChange={setFirstName} 
+          value={firstName} 
+          name="firstName" 
+          record={isEdit} 
+        />
+        <Input 
+          onChange={setLastName} 
+          value={lastName} 
+          name="lastName" 
+          record={isEdit} 
+        />
+        <Input 
+          onChange={setLastLogin} 
+          value={lastLogin} 
+          name="lastLogin" 
+          record={isEdit} 
+        />
         {
           !isEdit ?
             <Button 
-              type="submit" 
               title="Edit"
               onClick={openEditHandler} 
               img={iconEditSvg} 

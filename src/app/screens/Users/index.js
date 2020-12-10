@@ -1,9 +1,11 @@
 import React from 'react'
-import {UserList} from './components/UserList'
+import NewUserForm from './NewUserForm'
+import UserList from './UserList'
 
 const Users = () => {
   return (
     <>
+      <NewUserForm />
       <UserList />
     </>
   )
