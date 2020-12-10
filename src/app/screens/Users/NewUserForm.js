@@ -2,15 +2,16 @@ import React, {useState} from 'react'
 import iconAddUserSvg from '../../icons/addUser.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconCloseSvg from '../../icons/close.svg'
-import Input from '../../components/Input'
 import ErrorMessage from '../../components/ErrorMessage'
 import Button from '../../components/Button'
+import useInputValidation from '../../hooks/useInputValidation'
+
 
 const NewUserForm = () => {
-  const [userName, setUserName] = useState('user name')
-  const [firstName, setFirstName] = useState('first name')
-  const [lastName, setLastName] = useState('last name')
-  const [lastLogin, setLastLogin] = useState('last login')
+  const userName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'username')
+  const firstName = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'firstname')
+  const lastName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'lastname')
+  const lastLogin = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'lastlogin')
 
   const [isShow, setIsShow] = useState(true)
 
@@ -30,31 +31,39 @@ const NewUserForm = () => {
         /> 
         :
         <div className="new-user">
-          { false && <ErrorMessage />}
+          <ErrorMessage text={userName.isDirty && userName.message} />
+          <ErrorMessage text={firstName.isDirty && firstName.message} />
+          <ErrorMessage text={lastName.isDirty && lastName.message} />
+          <ErrorMessage text={lastLogin.isDirty && lastLogin.message} />
           <form onSubmit={(e)=>createUserHandler(e)}>
-          <Input 
-            onChange={setUserName} 
-            value={userName} 
-            name="userName" 
-            record={true} 
+          <input
+            value={userName.value} 
+            onBlur={(e)=> userName.onBlur(e)}
+            onChange={(e)=> userName.onChange(e)}
+            placeholder="username"
+            name="username"
           />
-          <Input 
-            onChange={setFirstName} 
-            value={firstName} 
-            name="firstName"
-            record={true} 
+          <input
+            value={firstName.value} 
+            onBlur={(e)=> firstName.onBlur(e)}
+            onChange={(e)=> firstName.onChange(e)}
+            placeholder="firstname"
+            name="firstname"
           />
-          <Input 
-            onChange={setLastName}
-            value={lastName} 
+          <input
+            value={lastName.value} 
+            onBlur={(e)=> lastName.onBlur(e)}
+            onChange={(e)=> lastName.onChange(e)}
+            placeholder="lastName"
             name="lastName"
-            record={true} 
           />
-          <Input 
-            onChange={setLastLogin}
-            value={lastLogin} 
+          <input
+            value={lastLogin.value} 
+            onBlur={(e)=> lastLogin.onBlur(e)}
+            onChange={(e)=> lastLogin.onChange(e)}
+            placeholder="lastLogin"
             name="lastLogin"
-            record={true}
+            record={true} 
           />
           <Button
             type="submit"
