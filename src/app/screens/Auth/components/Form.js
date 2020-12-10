@@ -3,8 +3,8 @@ import {ErrorMessage} from '../../../components/ErrorMessage'
 import useInputValidation from '../../../hooks/useInputValidation'
 
 export const Form = () => {
-  const username = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true})
-  const password = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30})
+  const username = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'username')
+  const password = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'password')
   
   return (
     <div>

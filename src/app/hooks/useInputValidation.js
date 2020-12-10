@@ -5,7 +5,7 @@ import React from 'react'
  * @param {*} validations
 */
 
-const useValidation = (value, validations) => {
+const useValidation = (value, validations, nameInput) => {
   const [isEmpty, setEmpty] = React.useState(true)
   const [minLengthError, setMinLengthError] = React.useState(false)
 
@@ -28,8 +28,8 @@ const useValidation = (value, validations) => {
 
   let message
   switch(true) {
-    case (isEmpty): message = 'Поле не должно быть пустым'; break
-    case (minLengthError): message = 'Минимальная длинна'; break
+    case (isEmpty): message = `Поле ${nameInput} не должно быть пустым`; break
+    case (minLengthError): message = `В поле ${nameInput} минимальная длинна`; break
     default: break
   }
       
@@ -45,10 +45,10 @@ const useValidation = (value, validations) => {
  * @param {*} validations
 */
 
-const useInputValidation = (initialValue, validations) => {
+const useInputValidation = (initialValue, validations, nameInput) => {
   const [value, setValue] = React.useState(initialValue)
   const [isDirty, setDirty] = React.useState(false)
-  const valid = useValidation(value, validations)
+  const valid = useValidation(value, validations, nameInput)
   const onChange = (e) => {
     setValue(e.target.value)
   }
