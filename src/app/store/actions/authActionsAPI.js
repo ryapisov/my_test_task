@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {GET_TOKEN} from '../types'
-// {username:'test_super', password:'Nf<U4f<rDbtDxAPn'}
 import {isStatusLoading} from './usersActions'
 
 const PATH = 'api-token-auth/'
@@ -12,7 +11,7 @@ export const fetchToken = ({username, password}) => async dispatch => {
     const res = await axios({
       url: 'http://emphasoft-test-assignment.herokuapp.com/api-token-auth/',
       method: 'post',
-      timeout: 8000,
+      timeout: 6000,
       headers: {
         'Content-Type':'application/json',
       },
@@ -23,10 +22,10 @@ export const fetchToken = ({username, password}) => async dispatch => {
     })
     if(res.status === 200) {
       dispatch({type:GET_TOKEN, payload:res.data})
-      dispatch(isStatusLoading(false))
-    }
-  //  alert('responce STATUS: OK Token:' + res.data.token )
+    }  
+    dispatch(isStatusLoading(false))
   }catch(err){
     alert('SERVER err' + err)
+    dispatch(isStatusLoading(false))
   }
 }

@@ -7,10 +7,11 @@ import TokenMessage from '../../components/TokenMessage'
 import LoadingMessage from '../../components/LoadingMessage'
 import {useInputValidation} from '../../hooks/useInputValidation'
 import {useLocalStorage} from '../../hooks/useLocalStorage'
+import {configValid} from '../../configs/configValid'
 
 const Auth = () => {
-  const userName = useInputValidation('test_super', {isEmpty:true, minLength:3, isUserName:true}, 'username')
-  const password = useInputValidation('Nf<U4f<rDbtDxAPn', {isEmpty:true, minLength:5, maxLength:30}, 'password')
+  const userName = useInputValidation('test_super', configValid.username)
+  const password = useInputValidation('Nf<U4f<rDbtDxAPn', configValid.password)
   const dispatch = useDispatch()
   const store = useSelector(state => state.auth)
 

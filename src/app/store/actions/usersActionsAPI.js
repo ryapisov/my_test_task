@@ -23,8 +23,7 @@ export const fetchUsers = (token) => async dispatch => {
       dispatch({type:ADD_MANY_USERS, payload:res.data})
     }
   }catch(err){
-    // TODO: errors
-    // {username:'test_super', password:'Nf<U4f<rDbtDxAPn'}
+    alert('ЗАПРОС err' + err)
   }
 }
 
@@ -45,7 +44,6 @@ export const addUser = ({}) => async dispatch => {
       dispatch({type:'ADD_NEW_USER', payload:res.data})
     }
   }catch(err){
-    // TODO: errors
-    // {username:'test_super', password:'Nf<U4f<rDbtDxAPn'}
+    alert('SERVER err' + err)
   }
 }

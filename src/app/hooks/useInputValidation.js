@@ -5,9 +5,11 @@ import React from 'react'
  * @param {*} validations
 */
 
-const useValidation = (value, validations, nameInput) => {
+const useValidation = (value, validations) => {
   const [isEmpty, setEmpty] = React.useState(true)
   const [minLengthError, setMinLengthError] = React.useState(false)
+  const [maxLengthError, setMaxLengthError] = React.useState(false)
+  const [regularError, setRegularError] = React.useState(false)
   const [inputValid, setInputValid] = React.useState(false)
 
   React.useEffect(()=>{
@@ -18,8 +20,19 @@ const useValidation = (value, validations, nameInput) => {
             ? setMinLengthError(true)
             : setMinLengthError(false)
           break
+        case 'maxLength':
+          value.length > validations[validation]
+            ? setMaxLengthError(true)
+            : setMaxLengthError(false)
+          break
         case 'isEmpty':
           value ? setEmpty(false) : setEmpty(true)
+          break
+        case 'pattern':
+          const re = validations[validation]
+          re.test(String(value).toLocaleLowerCase()) 
+            ? setRegularError(false)
+            : setRegularError(true)
           break
         default:
           break
@@ -28,18 +41,27 @@ const useValidation = (value, validations, nameInput) => {
   }, [value, validations]) 
 
   React.useEffect(()=>{
-    if(isEmpty || minLengthError){
+    if(isEmpty || minLengthError || maxLengthError || regularError){
       setInputValid(false)
     }else{
       setInputValid(true)
     }
-  }, [isEmpty, minLengthError])
-
+  }, [isEmpty, minLengthError, maxLengthError, regularError])
 
   let message
   switch(true) {
-    case (isEmpty): message = `Поле ${nameInput} не должно быть пустым`; break
-    case (minLengthError): message = `В поле ${nameInput} минимальная длинна`; break
+    case (isEmpty): message = `
+      В поле ${validations.title} пусто`
+      break
+    case (minLengthError): message = `
+      В поле ${validations.title} мин. длинна ${validations.minLength} символа`
+      break
+    case (maxLengthError): message = `
+      В поле ${validations.title} не более ${validations.maxLength} символа`
+      break
+    case (regularError): message = `
+      Поле ${validations.title} содержит недопустимые символы`
+      break
     default: break
   }
       
@@ -56,10 +78,10 @@ const useValidation = (value, validations, nameInput) => {
  * @param {*} validations
 */
 
-export const useInputValidation = (initialValue, validations, nameInput) => {
+export const useInputValidation = (initialValue, validations) => {
   const [value, setValue] = React.useState(initialValue)
   const [isDirty, setDirty] = React.useState(false)
-  const valid = useValidation(value, validations, nameInput)
+  const valid = useValidation(value, validations)
   const onChange = (e) => {
     setValue(e.target.value)
   }
