@@ -1,14 +1,13 @@
 import axios from 'axios'
 import {
   ADD_MANY_USERS
- // SORT_BY_ID
 } from '../types'
 
 const PATH = 'api/v1/users?_pages=10'
 const PROTOCOL = 'http://'
 const ROOT_URL = 'emphasoft-test-assignment.herokuapp.com/'
 
-export const fetchUsers = (token) => async dispatch => {
+export const getUsersAPI = (token) => async dispatch => {
   try {
     const res = await axios({
       url: PROTOCOL + ROOT_URL + PATH,
@@ -29,7 +28,7 @@ export const fetchUsers = (token) => async dispatch => {
 
 export const rewriteUsers = (payload) => ({type:'SORT_BY_ID', payload})
 
-export const addUser = ({}) => async dispatch => {
+export const addUserAPI = ({}) => async dispatch => {
   try {
     const res = await axios({
       url: PROTOCOL + ROOT_URL + PATH,

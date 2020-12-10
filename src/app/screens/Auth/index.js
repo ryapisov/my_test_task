@@ -1,12 +1,10 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchToken} from '../../store/actions/authActionsAPI'
-import {isStatusLoading} from '../../store/actions/actions'
+import {getTokenAPI, isStatusLoading} from '../../store/actions/authActionsAPI'
 import {useInputValidation} from '../../hooks/useInputValidation'
 import {useLocalStorage} from '../../hooks/useLocalStorage'
 import {configValid} from '../../configs/configValid'
 import ErrorMessage from '../../components/ErrorMessage'
-import TokenMessage from '../../components/TokenMessage'
 import LoadingMessage from '../../components/LoadingMessage'
 
 const Auth = () => {
@@ -22,7 +20,7 @@ const Auth = () => {
     // установить индикатор загрузки
     dispatch(isStatusLoading(true))
     // отправить данные на сервер
-    dispatch(fetchToken({username:userName.value, password:password.value}))
+    dispatch(getTokenAPI({username:userName.value, password:password.value}))
     // записать токен в хранилище
     setTokenLocalStorage(store.token)
   }
@@ -30,7 +28,6 @@ const Auth = () => {
   return (
     <>
       {store.isLoading && <LoadingMessage text={'Ждите, загрузка...'} />}
-      {false && <TokenMessage text={'sadf'} />}
       <ErrorMessage text={userName.isDirty && userName.message} />
       <ErrorMessage text={password.isDirty && password.message} />
       <form onSubmit={(e)=>submitHandler(e)}>

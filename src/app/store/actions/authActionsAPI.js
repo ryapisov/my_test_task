@@ -1,15 +1,14 @@
 import axios from 'axios'
-import {GET_TOKEN} from '../types'
-import {isStatusLoading} from './actions'
+import {GET_TOKEN, IS_LOADING} from '../types'
 
 const PATH = 'api-token-auth/'
 const PROTOCOL = 'http://'
 const ROOT_URL = 'emphasoft-test-assignment.herokuapp.com/'
 
-export const fetchToken = ({username, password}) => async dispatch => {
+export const getTokenAPI = ({username, password}) => async dispatch => {
   try {
     const res = await axios({
-      url: 'http://emphasoft-test-assignment.herokuapp.com/api-token-auth/',
+      url: PROTOCOL+ROOT_URL+PATH,
       method: 'post',
       timeout: 6000,
       headers: {
@@ -29,3 +28,5 @@ export const fetchToken = ({username, password}) => async dispatch => {
     dispatch(isStatusLoading(false))
   }
 }
+
+export const isStatusLoading = (payload) => ({type:IS_LOADING, payload})

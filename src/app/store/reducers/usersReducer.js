@@ -1,5 +1,7 @@
 import {
-  ADD_MANY_USERS
+  ADD_MANY_USERS,
+  SORT_BY_ID,
+  ADD_NEW_USER
 } from '../types'
 
 const defaultState = {
@@ -27,9 +29,9 @@ export const usersReducer = (state = defaultState, action) => {
   switch(action.type){
     case ADD_MANY_USERS:
       return {...state, users:[...state.users, ...action.payload]}
-    case 'SORT_BY_ID':
+    case SORT_BY_ID:
       return {...state, users:[...action.payload]}
-    case 'ADD_NEW_USER':
+    case ADD_NEW_USER:
       return {...state.user, user: action.payload }
     default:
       return state

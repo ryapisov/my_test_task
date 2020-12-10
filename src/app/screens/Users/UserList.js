@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {fetchUsers, rewriteUsers, addUser} from '../../store/actions/usersActionsAPI'
+import {getUsersAPI, rewriteUsers, addUserAPI} from '../../store/actions/usersActionsAPI'
 import UserItem from './UserItem'
 import Button from '../../components/Button'
 
@@ -9,7 +9,7 @@ const UserList = () => {
   const users = useSelector((state)=> state.users.users )
   
   useEffect(()=>{
-    dispatch(fetchUsers())
+    dispatch(getUsersAPI())
   }, [dispatch])
   
   const sortBy_Id = () => {
@@ -26,7 +26,7 @@ const UserList = () => {
   }
 
   const create_User = () => {
-    dispatch(addUser)
+    dispatch(addUserAPI)
   }
 
   return (

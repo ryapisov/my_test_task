@@ -1,7 +1,12 @@
 import React from 'react'
 
 /**
- *  const [token, setToken] = useLocalStorage('token', 'foo data')
+ * Данный hook записывает токен в
+ * localStorage, далее использует значение
+ * value во всём проекте. C помощью 
+ * функции destroy удаляем значение ключа.
+ * key - названия ключа в хранилище.
+ * initialValue - значение ключа.
  * 
  * */ 
 
@@ -14,9 +19,7 @@ export const useLocalStorage = (key, initialValue='') => {
     localStorage.setItem(key, value)
   }, [value, key])
 
-  function destroy(){
-    localStorage.removeItem(key)
-  }
-  
+  const destroy = () => localStorage.removeItem(key)
+
   return [value, setValue, destroy]
 }
