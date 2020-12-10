@@ -3,7 +3,7 @@ import iconAddUserSvg from '../../icons/addUser.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconCloseSvg from '../../icons/close.svg'
 import {Input} from '../../components/Input'
-import {ErrorsMessage} from './ErrorsMessage'
+import {ErrorMessage} from '../../components/ErrorMessage'
 import {Button} from '../../components/Button'
 
 const NewUserForm = () => {
@@ -30,9 +30,7 @@ const NewUserForm = () => {
         /> 
         :
         <div className="new-user">
-          { false && <ErrorsMessage />}
-          { true && <ErrorsMessage />}
-          { true && <ErrorsMessage />}
+          { false && <ErrorMessage />}
           <form onSubmit={(e)=>createUserHandler(e)}>
           <Input 
             onChange={setUserName} 

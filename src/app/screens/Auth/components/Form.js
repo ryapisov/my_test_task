@@ -1,4 +1,5 @@
 import React from 'react'
+import {ErrorMessage} from '../../../components/ErrorMessage'
 import useInputValidation from '../../../hooks/useInputValidation'
 
 export const Form = () => {
@@ -8,7 +9,8 @@ export const Form = () => {
   return (
     <div>
       <form>
-        {username.isDirty && username.message}
+        <ErrorMessage text={username.isDirty && username.message} />
+        <ErrorMessage text={password.isDirty && password.message} />
         <input 
           value={username.value} 
           onBlur={(e)=> username.onBlur(e)}
@@ -16,8 +18,6 @@ export const Form = () => {
           placeholder="Пользователь"
           name="username"
         />
-
-        {password.isDirty && password.message}
         <input 
           value={password.value} 
           onBlur={(e)=> password.onBlur(e)}

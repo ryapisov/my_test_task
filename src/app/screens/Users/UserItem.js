@@ -4,7 +4,7 @@ import iconSaveSvg from '../../icons/save.svg'
 import iconDeleteSvg from '../../icons/delete.svg'
 import iconCloseSvg from '../../icons/close.svg'
 import {Input} from '../../components/Input'
-import {ErrorsMessage} from './ErrorsMessage'
+import {ErrorMessage} from '../../components/ErrorMessage'
 import {Button} from '../../components/Button'
 
 export const UserItem = (props) => {
@@ -51,7 +51,7 @@ export const UserItem = (props) => {
 
   return (
     <>
-      { false && <ErrorsMessage />}
+      { false && <ErrorMessage />}
       <form onSubmit={(e)=> updateUserFormHandler(e)}>
         {/* <span>ID: {props.id}</span> */}
         <input type="hidden" name="userId" value={props.id} />
