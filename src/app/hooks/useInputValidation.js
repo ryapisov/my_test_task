@@ -24,11 +24,19 @@ const useValidation = (value, validations) => {
           break
       }
     }
-  }, [value, validations])
+  }, [value, validations]) 
 
+  let message
+  switch(true) {
+    case (isEmpty): message = 'Поле не должно быть пустым'; break
+    case (minLengthError): message = 'Минимальная длинна'; break
+    default: break
+  }
+      
   return {
     isEmpty,
-    minLengthError
+    minLengthError,
+    message
   }
 }
 

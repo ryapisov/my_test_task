@@ -8,8 +8,7 @@ export const Form = () => {
   return (
     <div>
       <form>
-        {username.isDirty && username.isEmpty && <>username неможет быть пустым</>}
-        {username.isDirty && username.minLengthError && <>username длинна менее 5 символов</>}
+        {username.isDirty && username.message}
         <input 
           value={username.value} 
           onBlur={(e)=> username.onBlur(e)}
@@ -17,8 +16,8 @@ export const Form = () => {
           placeholder="Пользователь"
           name="username"
         />
-        {password.isDirty && password.isEmpty && <>password не может быть пустым</>}
-        {password.isDirty && password.minLengthError && <>password пароль длинна менее 5 символов</>}
+
+        {password.isDirty && password.message}
         <input 
           value={password.value} 
           onBlur={(e)=> password.onBlur(e)}
