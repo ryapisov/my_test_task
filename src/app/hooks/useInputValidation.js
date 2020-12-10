@@ -8,6 +8,7 @@ import React from 'react'
 const useValidation = (value, validations, nameInput) => {
   const [isEmpty, setEmpty] = React.useState(true)
   const [minLengthError, setMinLengthError] = React.useState(false)
+  const [inputValid, setInputValid] = React.useState(false)
 
   React.useEffect(()=>{
     for (const validation in validations){
@@ -26,6 +27,15 @@ const useValidation = (value, validations, nameInput) => {
     }
   }, [value, validations]) 
 
+  React.useEffect(()=>{
+    if(isEmpty || minLengthError){
+      setInputValid(false)
+    }else{
+      setInputValid(true)
+    }
+  }, [isEmpty, minLengthError])
+
+
   let message
   switch(true) {
     case (isEmpty): message = `Поле ${nameInput} не должно быть пустым`; break
@@ -36,7 +46,8 @@ const useValidation = (value, validations, nameInput) => {
   return {
     isEmpty,
     minLengthError,
-    message
+    message,
+    inputValid
   }
 }
 

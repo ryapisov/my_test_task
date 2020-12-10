@@ -6,14 +6,12 @@ import ErrorMessage from '../../components/ErrorMessage'
 import Button from '../../components/Button'
 import useInputValidation from '../../hooks/useInputValidation'
 
-
 const NewUserForm = () => {
+  const [isShow, setIsShow] = useState(true)
   const userName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'username')
   const firstName = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'firstname')
   const lastName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'lastname')
   const lastLogin = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'lastlogin')
-
-  const [isShow, setIsShow] = useState(true)
 
   const createUserHandler = (e) => {
     e.preventDefault()
@@ -31,11 +29,11 @@ const NewUserForm = () => {
         /> 
         :
         <div className="new-user">
+          <form onSubmit={(e)=>createUserHandler(e)}>
           <ErrorMessage text={userName.isDirty && userName.message} />
           <ErrorMessage text={firstName.isDirty && firstName.message} />
           <ErrorMessage text={lastName.isDirty && lastName.message} />
           <ErrorMessage text={lastLogin.isDirty && lastLogin.message} />
-          <form onSubmit={(e)=>createUserHandler(e)}>
           <input
             value={userName.value} 
             onBlur={(e)=> userName.onBlur(e)}
@@ -63,7 +61,6 @@ const NewUserForm = () => {
             onChange={(e)=> lastLogin.onChange(e)}
             placeholder="lastLogin"
             name="lastLogin"
-            record={true} 
           />
           <Button
             type="submit"

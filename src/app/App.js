@@ -16,7 +16,8 @@ function App() {
               Тестовое задание в компанию 
               <a href="https://emphasoft.com">Emphasoft</a>
             </h2>
-            <Users />
+            <Auth />
+            {/* <Users /> */}
           </div>
         </div>
       </div>
