@@ -9,11 +9,14 @@ import ErrorMessage from '../../components/ErrorMessage'
 import Button from '../../components/Button'
 
 const UserItem = (props) => {
+ // const {userName, lastName, firstName, lastLogin} = 
+
+  console.log(props)
   const [isEdit, setIsEdit] = useState(false)
-  const userName = useInputValidation('', configValid.userName)
-  const lastName = useInputValidation('', configValid.lastName)
-  const firstName = useInputValidation('', configValid.firstName)
-  const lastLogin = useInputValidation('', configValid.lastLogin)
+  const userName = useInputValidation(props.userName, configValid.userName)
+  const lastName = useInputValidation(props.lastName, configValid.lastName)
+  const firstName = useInputValidation(props.firstName, configValid.firstName)
+  const lastLogin = useInputValidation(props.lastLogin, configValid.lastLogin)
  
   const openEditHandler = () => {
    // setIsEdit(true)
@@ -48,6 +51,7 @@ const UserItem = (props) => {
             onChange={(e)=> userName.onChange(e)}
             placeholder="username"
             name="username"
+            disabled={!isEdit}
           />
           <input
             value={firstName.value} 
@@ -55,6 +59,7 @@ const UserItem = (props) => {
             onChange={(e)=> firstName.onChange(e)}
             placeholder="firstname"
             name="firstname"
+            disabled={!isEdit}
           />
           <input
             value={lastName.value} 
@@ -62,6 +67,7 @@ const UserItem = (props) => {
             onChange={(e)=> lastName.onChange(e)}
             placeholder="lastName"
             name="lastName"
+            disabled={!isEdit}
           />
           <input
             value={lastLogin.value} 
@@ -69,7 +75,7 @@ const UserItem = (props) => {
             onChange={(e)=> lastLogin.onChange(e)}
             placeholder="lastLogin"
             name="lastLogin"
-            record={true} 
+            disabled={!isEdit}
           />
        
         {

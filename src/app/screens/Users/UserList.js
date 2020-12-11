@@ -43,7 +43,14 @@ const UserList = () => {
           title="Sort By username"
         />
       </div>
-      {users.map((user, i)=> <UserItem key={i} {...user}/>)}
+      {users.map((user, i)=>
+        <UserItem key={i} 
+          lastName={user.last_name ? user.last_name : '' }
+          userName={user.username ? user.username : '' }
+          firstName={user.first_name ? user.first_name : '' }
+          lastLogin={user.last_login ? user.last_login : '' } 
+        />
+      )}
     </>
   )
 }
