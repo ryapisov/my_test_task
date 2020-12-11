@@ -1,5 +1,8 @@
 import axios from 'axios'
-import {GET_TOKEN, IS_LOADING} from '../types'
+import {
+  GET_TOKEN, 
+  IS_LOADING
+} from '../types'
 
 const PATH = 'api-token-auth/'
 const PROTOCOL = 'http://'

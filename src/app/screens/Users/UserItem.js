@@ -79,11 +79,16 @@ const UserItem = (props) => {
             />
         :
           <>
-            <Button 
-              type="submit" 
-              img={iconSaveSvg} 
-              title="Save" 
-            />
+            <button
+              type="submit"
+              title="Save"
+              disabled={
+                !userName.inputValid || 
+                !lastName.inputValid || 
+                !firstName.inputValid
+              }
+            ><img src={iconSaveSvg} alt=''/>
+            </button>
             <Button  
               img={iconDeleteSvg} 
               title="Delete" 

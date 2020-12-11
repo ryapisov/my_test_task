@@ -15,13 +15,13 @@ export const configValid = {
   },
   firstName: {
     title: 'First Name',
-    pattern:/^[a-zA-Z\s]+$/,
+    pattern:/^[a-zA-Zа-яА-Я\s]+$/,
     isEmpty:true,
     maxLength: 150,
   },
   lastName: {
     title: 'Last Name',
-    pattern:/^[a-zA-Z\s]+$/,
+    pattern:/^[a-zA-Zа-яА-Я\s]+$/,
     isEmpty:true,
     maxLength: 150
   },
