@@ -1,52 +1,36 @@
 import React, {useState} from 'react'
+import {useInputValidation} from '../../hooks/useInputValidation'
+import {configValid} from '../../configs/configValid'
 import iconEditSvg from '../../icons/edit.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconDeleteSvg from '../../icons/delete.svg'
 import iconCloseSvg from '../../icons/close.svg'
 import ErrorMessage from '../../components/ErrorMessage'
-import {useInputValidation} from '../../hooks/useInputValidation'
 import Button from '../../components/Button'
 
 const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
-  const userName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'username')
-  const firstName = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'firstname')
-  const lastName = useInputValidation('', {isEmpty:true, minLength:3, isUserName:true}, 'lastname')
-  const lastLogin = useInputValidation('', {isEmpty:true, minLength:5, maxLength:30}, 'lastlogin')
-  // TODO: is_superuser ??
-  // TODO: is_active  ??
-
-  /*
-    Устанавливает флаг, разрешает или
-    запрещает редактировать поля input.
-  */
-  const openEditHandler = () => {
+  const userName = useInputValidation('', configValid.userName)
+  const lastName = useInputValidation('', configValid.lastName)
+  const firstName = useInputValidation('', configValid.firstName)
+  const lastLogin = useInputValidation('', configValid.lastLogin)
  
+  const openEditHandler = () => {
+   // setIsEdit(true)
+    alert('Edit бновить пользователя')
+    setIsEdit(!isEdit)
   }
-  /* 
-    Если форма редактирования закрыта 
-    без изменений, тогда вернуть State 
-    в начальное состояние.
-  */
-  // const closeEditHandler = () => {
-  //   setUserName(props.username)
-  //   setFirstName(props.first_name)
-  //   setLastName(props.last_name)
-  //   setLastLogin(props.last_login)
-  //   setIsEdit(!isEdit)
-  // }
-  
+ 
   const deleteUserHandler = (id) => {
-    // TODO  
     alert('Удаление пользователя')
+    setIsEdit(!isEdit)
   }
 
   const updateUserFormHandler = (e) => {
     e.preventDefault()
-    // TODO  
     console.log(e.target[0])
     alert('Обновить пользователя')
-  
+    setIsEdit(!isEdit)
   }
 
   return (
@@ -92,7 +76,7 @@ const UserItem = (props) => {
           !isEdit ?
             <Button 
               title="Edit"
-              onClick={openEditHandler} 
+              onClick={()=>setIsEdit(!isEdit)} 
               img={iconEditSvg} 
             />
         :
@@ -110,7 +94,7 @@ const UserItem = (props) => {
             <Button 
               img={iconCloseSvg} 
               title="Cancel" 
-              onClick={()=>{}} 
+              onClick={()=>setIsEdit(!isEdit)} 
             />
           </>
        }

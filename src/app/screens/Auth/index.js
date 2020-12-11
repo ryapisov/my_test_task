@@ -2,13 +2,13 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {getTokenAPI, isStatusLoading} from '../../store/actions/authActionsAPI'
 import {useInputValidation} from '../../hooks/useInputValidation'
-import {useLocalStorage} from '../../hooks/useLocalStorage'
 import {configValid} from '../../configs/configValid'
+import {useLocalStorage} from '../../hooks/useLocalStorage'
 import ErrorMessage from '../../components/ErrorMessage'
 import LoadingMessage from '../../components/LoadingMessage'
 
 const Auth = () => {
-  const userName = useInputValidation('test_super', configValid.username)
+  const userName = useInputValidation('test_super', configValid.userName)
   const password = useInputValidation('Nf<U4f<rDbtDxAPn', configValid.password)
   const [ tokenLocalStorage,  setTokenLocalStorage] = useLocalStorage('token', '')
   
@@ -36,7 +36,7 @@ const Auth = () => {
           onBlur={(e)=> userName.onBlur(e)}
           onChange={(e)=> userName.onChange(e)}
           placeholder="Пользователь"
-          name="username"
+          name="userName"
         />
         <input 
           value={password.value} 

@@ -1,5 +1,5 @@
 export const configValid = {
-  username: {
+  userName: {
     title: 'Username',
     isEmpty:true,
     pattern: /^[\w.@+-]+$/,
@@ -13,16 +13,21 @@ export const configValid = {
     maxLength: 128,
     minLength: 8
   },
-  first_name: {
+  firstName: {
     title: 'First Name',
-    maxLength: 30
+    pattern:/^[a-zA-Z\s]+$/,
+    isEmpty:true,
+    maxLength: 150,
   },
-  last_name: {
+  lastName: {
     title: 'Last Name',
+    pattern:/^[a-zA-Z\s]+$/,
+    isEmpty:true,
     maxLength: 150
   },
-  last_login: {
+  lastLogin: {
     title: 'Last login',
+    isEmpty:true,
     maxLength: 150
   }
 }
