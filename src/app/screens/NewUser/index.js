@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useInputValidation} from '../../hooks/useInputValidation'
 import {configValid} from '../../configs/configValid'
+import {createNewUserAPI} from '../../store/actions/usersActions'
 import iconAddUserSvg from '../../icons/addUser.svg'
 import iconSaveSvg from '../../icons/save.svg'
 import iconCloseSvg from '../../icons/close.svg'
@@ -16,7 +17,8 @@ const NewUser = () => {
 
   const createUserHandler = (e) => {
     e.preventDefault()
-    alert('НОВЫЙ ПОЛЬЗОВАТЕЛЬ')
+    // TODO:
+    alert('Cоздать пользователя')
   }
 
   return (

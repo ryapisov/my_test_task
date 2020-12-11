@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {getUsersAPI, rewriteUsers, addUserAPI} from '../../store/actions/usersActionsAPI'
+import {getUsersAPI, rewriteUsers, addUserAPI} from '../../store/actions/usersActions'
 import UserItem from './UserItem'
 import Button from '../../components/Button'
 
@@ -11,22 +11,22 @@ const UserList = () => {
   useEffect(()=>{
     dispatch(getUsersAPI())
   }, [dispatch])
-  
-  const sortBy_Id = () => {
-    const newUsers= users.sort((prev, next) => prev.id - next.id)
-    dispatch(rewriteUsers(newUsers))
+
+  const sortByIdHandler = () => {
+    // TODO: ДОДЕЛАТЬ
+    //  const newUsers= users.sort((prev, next) => prev.id - next.id)
+    //  dispatch(rewriteUsers(newUsers))
+    alert('Сортировка по id')
   }
 
-  const sortBy_Username = () => {
-    const newUsers = users.sort((prev, next) => {
-      if ( prev.username < next.username ) return -1
-      if ( prev.username < next.username ) return 1
-    })
-    dispatch(rewriteUsers(newUsers))
-  }
-
-  const create_User = () => {
-    dispatch(addUserAPI)
+  const sortByUserNameHandler = () => {
+    // TODO: ДОДЕЛАТЬ
+    // const newUsers = users.sort((prev, next) => {
+    //   if ( prev.username < next.username ) return -1
+    //   if ( prev.username < next.username ) return 1
+    // })
+    // dispatch(rewriteUsers(newUsers))
+    alert('Сортировка по userName')
   }
 
   return (
@@ -34,17 +34,18 @@ const UserList = () => {
       <div className="buttons-sort">
         <Button 
           text="Сортировать по ID" 
-          onClick={()=>sortBy_Id()} 
+          onClick={()=> sortByIdHandler()} 
           title="Sort by id"
         />
         <Button 
           text="Сортировать по Username" 
-          onClick={()=>sortBy_Username()} 
+          onClick={()=> sortByUserNameHandler()} 
           title="Sort By username"
         />
       </div>
       {users.map((user, i)=>
         <UserItem key={i} 
+          id={user.id ? user.id  : '' }
           lastName={user.last_name ? user.last_name : '' }
           userName={user.username ? user.username : '' }
           firstName={user.first_name ? user.first_name : '' }

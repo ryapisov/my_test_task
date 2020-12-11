@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {getTokenAPI, isStatusLoading} from '../../store/actions/authActionsAPI'
+import {getTokenAPI, isStatusLoading} from '../../store/actions/authActions'
 import {useInputValidation} from '../../hooks/useInputValidation'
 import {configValid} from '../../configs/configValid'
 import {useLocalStorage} from '../../hooks/useLocalStorage'

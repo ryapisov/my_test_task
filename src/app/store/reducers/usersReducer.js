@@ -1,7 +1,7 @@
 import {
   ADD_MANY_USERS,
-  SORT_BY_ID,
-  ADD_NEW_USER
+  ADD_NEW_USER,
+  SORT_BY_ID
 } from '../types'
 
 const defaultState = {
@@ -15,14 +15,7 @@ const defaultState = {
       is_active: true,
       is_superuser: true
     }
-  ],
-  user:{
-    username:"",
-    first_name:"",
-    last_name:"",
-    password:"",
-    is_active:true
-  }
+  ]
 }
 
 export const usersReducer = (state = defaultState, action) => {

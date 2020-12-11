@@ -9,29 +9,21 @@ import ErrorMessage from '../../components/ErrorMessage'
 import Button from '../../components/Button'
 
 const UserItem = (props) => {
- // const {userName, lastName, firstName, lastLogin} = 
-
-  console.log(props)
   const [isEdit, setIsEdit] = useState(false)
   const userName = useInputValidation(props.userName, configValid.userName)
   const lastName = useInputValidation(props.lastName, configValid.lastName)
   const firstName = useInputValidation(props.firstName, configValid.firstName)
   const lastLogin = useInputValidation(props.lastLogin, configValid.lastLogin)
  
-  const openEditHandler = () => {
-   // setIsEdit(true)
-    alert('Edit бновить пользователя')
-    setIsEdit(!isEdit)
-  }
- 
   const deleteUserHandler = (id) => {
+    // TODO: 
     alert('Удаление пользователя')
     setIsEdit(!isEdit)
   }
 
   const updateUserFormHandler = (e) => {
     e.preventDefault()
-    console.log(e.target[0])
+    // TODO:
     alert('Обновить пользователя')
     setIsEdit(!isEdit)
   }
@@ -43,9 +35,9 @@ const UserItem = (props) => {
       <ErrorMessage text={lastName.isDirty && lastName.message} />
       <ErrorMessage text={lastLogin.isDirty && lastLogin.message} />
       <form onSubmit={(e)=> updateUserFormHandler(e)}>
-        {/* <span>ID: {props.id}</span> */}
-        <input type="hidden" name="userId" value={props.id} />
-        <input
+          <span className="id-user">ID: {props.id}</span>
+          <input type="hidden" name="userId" value={props.id} />
+          <input
             value={userName.value} 
             onBlur={(e)=> userName.onBlur(e)}
             onChange={(e)=> userName.onChange(e)}
@@ -75,7 +67,7 @@ const UserItem = (props) => {
             onChange={(e)=> lastLogin.onChange(e)}
             placeholder="lastLogin"
             name="lastLogin"
-            disabled={!isEdit}
+            disabled={true}
           />
        
         {

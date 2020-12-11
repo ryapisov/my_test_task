@@ -8,7 +8,6 @@ import Auth from './screens/Auth'
 import Users from './screens/Users/UserList'
 import NewUser from './screens/NewUser'
 
-
 const Wrapper = styled.div`
   width: 100%; 
   font-family: 'Noto Sans', sans-serif;
@@ -20,7 +19,6 @@ const Section = styled.div`
   padding:20px 0;
   text-align:center;
 `
-
 const H2 = styled.div`
   font-size: 30px;
   font-weight:700;

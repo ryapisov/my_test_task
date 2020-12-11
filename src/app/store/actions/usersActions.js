@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {
-  ADD_MANY_USERS
+  ADD_MANY_USERS,
+  SORT_BY_ID
 } from '../types'
 
 const PATH = 'api/v1/users?_pages=10'
@@ -22,13 +23,11 @@ export const getUsersAPI = (token) => async dispatch => {
       dispatch({type:ADD_MANY_USERS, payload:res.data})
     }
   }catch(err){
-    alert('ЗАПРОС err' + err)
+    alert('SERVER err' + err)
   }
 }
 
-export const rewriteUsers = (payload) => ({type:'SORT_BY_ID', payload})
-
-export const addUserAPI = ({}) => async dispatch => {
+export const createNewUserAPI = ({}) => async dispatch => {
   try {
     const res = await axios({
       url: PROTOCOL + ROOT_URL + PATH,
@@ -46,3 +45,5 @@ export const addUserAPI = ({}) => async dispatch => {
     alert('SERVER err' + err)
   }
 }
+
+export const rewriteUsers = (payload) => ({type:SORT_BY_ID, payload})

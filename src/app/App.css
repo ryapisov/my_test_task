@@ -15,6 +15,13 @@
   background-color: rgb(14, 197, 14);
 }
 
+span.id-user{
+  width:65px;
+  display: inline-block;
+  background:#222;
+  text-align: left;
+}
+
 .error{
   padding: 14px 0;
   max-width: 540px;
@@ -62,7 +69,6 @@ button:hover{
   background:rgb(33, 142, 161);
 }
 
-
 input{
   width: 12%;
   background-color: #7ec4ce;
@@ -81,8 +87,6 @@ button {
 	color: #fff;
   background-color: #7ec4ce;
 }	
-
-
 
 /* Mobile
 ---------------------------------- */
