@@ -20,15 +20,14 @@ const NewUser = () => {
   const createUserHandler = (e) => {
     e.preventDefault()
     // TODO:
-
-    dispatch(createNewUserAPI({
-      userName,
-      lastName,
-      firstName,
-      lastLogin: new Date(),
-      is_active: true
-    //  password:''
-    }))
+    // dispatch(createNewUserAPI({
+    //   userName,
+    //   lastName,
+    //   firstName,
+    //   lastLogin: new Date(),
+    //   is_active: true
+    // //  password:''
+    // }))
     alert('Cоздать пользователя')
   }
 

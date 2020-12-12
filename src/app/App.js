@@ -43,19 +43,15 @@ function App() {
             <a href="https://emphasoft.com">Emphasoft</a>
           </H2>
         </Section>
-
         <Section>
-          <Auth />
+          {true && <Auth />}
         </Section>
-
         <Section>
-          <NewUser />
+          {true && <NewUser />}
         </Section>
-
         <Section>
-          <Users />
+          {true && <Users />}
         </Section>
-        
       </Wrapper>
     </Provider>
   )

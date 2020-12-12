@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getUsersAPI, rewriteUsers, addUserAPI} from '../../store/actions/usersActions'
 import UserItem from './UserItem'
 import Button from '../../components/Button'
+import Search from '../../components/Search'
 
 const UserList = () => {
   const dispatch = useDispatch()
@@ -31,6 +32,8 @@ const UserList = () => {
 
   return (
     <>
+      <Search />
+
       <div className="buttons-sort">
         <Button 
           text="Сортировать по ID" 
