@@ -1,15 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import 'normalize.css'
 import {Provider} from 'react-redux'
 import {store} from './store'
-// import Auth from '../app/containers/Auth'
-// import UserList from '../app/containers/UserList'
-// import NewUser from '../app/containers/NewUser'
-// import Search from '../app/containers/Search'
 import {Auth, NewUser, Search, UserList } from '../app/containers'
 import {Wrapper, Section} from '../app/components'
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false)
+
   return (
     <Provider store={store}>
       <Wrapper>
@@ -18,15 +16,25 @@ function App() {
             <a href="https://emphasoft.com">Emphasoft</a>
           </h2>
         </Section>
-        <Section> 
-          {true && <Auth />}
-        </Section>
-        <Section>
-          {true && <NewUser />}
+        {
+          isAuth
+          ? 
+          <>
+            <Section><Search /></Section>
+            <Section><NewUser /></Section>
+            <Section><UserList /></Section>
+          </>
+          :
+          <>
+          <Section>
+            <Auth />
           </Section>
           <Section>
-          {true && <UserList />}
-        </Section>
+            Логин:&nbsp; {'test_super'}<br/><br/>
+            Пароль:&nbsp; {'Nf<U4f<rDbtDxAPn'}
+          </Section>
+          </>
+        }
       </Wrapper>
     </Provider>
   )

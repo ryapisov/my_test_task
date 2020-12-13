@@ -30,14 +30,14 @@ function Auth() {
       {password.isDirty && userName.message && <Notice>{password.message}</Notice>}
       { false && <Notice>Загрузка...</Notice>}
       <Input
-        value={userName.value} 
+        value={userName.value.trim()} 
         onBlur={(e)=> userName.onBlur(e)}
         onChange={(e)=> userName.onChange(e)}
         placeholder="Пользователь"
         name="userName"
       />
       <Input
-        value={password.value} 
+        value={password.value.trim()} 
         onBlur={(e)=> password.onBlur(e)}
         onChange={(e)=> password.onChange(e)}
         placeholder="Пароль"

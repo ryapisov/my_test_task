@@ -1,15 +1,5 @@
 import React from 'react'
 
-/**
- * Hook useValidation производит валидацию 
- * введённых данных в поле Input.
- * value - валидируемое значение validators - 
- * конфигурационные данные для свойств валидации
- * в виде объекта {ключ1:value1, ключ2:value2}
- * Хук useValidation работает в тестной связке 
- * с хуком useInputValidation
- * */
-
 const useValidation = (value, validations) => {
   const [isEmpty, setEmpty] = React.useState(true)
   const [minLengthError, setMinLengthError] = React.useState(false)
