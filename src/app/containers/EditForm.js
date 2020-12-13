@@ -76,7 +76,7 @@ function EditForm(props){
         <Button
           type="button"
           title="Cancel" 
-          onClick={()=>setIsEdit(!isEdit)} 
+          onClick={props.onClick} 
         ><img src={iconCloseSvg} alt=''/>
         </Button>
       </Form>
