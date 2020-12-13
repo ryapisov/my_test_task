@@ -9,7 +9,7 @@ import iconDeleteSvg from '../icons/delete.svg'
 import iconCloseSvg from '../icons/close.svg'
 import {Input, Form, Notice,  Button} from '../components'
 
-function EditForm(props){
+const EditForm = (props) => {
   const userId = props.id || ''
   const userName = useInputValidation(props.username || '', configValid.userName)
   const lastName = useInputValidation(props.last_name || '', configValid.lastName)
