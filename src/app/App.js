@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import 'normalize.css'
-import './App.css'
 import {Provider} from 'react-redux'
 import {store} from './store'
-import Auth from './screens/Auth'
-import Users from './screens/Users/UserList'
-import NewUser from './screens/NewUser'
+import Auth from '../app/components/Auth'
+import UserList from '../app/components/UserList'
+import NewUser from '../app/components/NewUser'
+import Search from '../app/components/Search'
 
 const Wrapper = styled.div`
   width: 100%; 
@@ -50,7 +50,10 @@ function App() {
           {true && <NewUser />}
         </Section>
         <Section>
-          {true && <Users />}
+          {true && <Search />}
+        </Section>
+        <Section>
+          {true && <UserList />}
         </Section>
       </Wrapper>
     </Provider>

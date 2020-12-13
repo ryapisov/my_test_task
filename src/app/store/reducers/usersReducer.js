@@ -31,18 +31,3 @@ export const usersReducer = (state = defaultState, action) => {
   }
 }
 
-// export const customersReducer = (state = defaultState, action) => {
-//   switch (action.type){
-//     case ADD_MANY_CUSTOMERS:
-//       return {...state, customers:[...state.customers, ...action.payload]}
-//     case ADD_CUSTOMER: 
-//       return {...state, customers:[...state.customers, action.payload]}
-//     case REMOVE_CUSTOMERS:
-//       return {...state, customers: state.customers.filter((customer) => customer.id !== action.payload ) }
-//     case 'GO':
-//       return {...state, customers: [...state.customers, action.payload]}
-//     default:
-//       return state
-//   }
-// }
-
