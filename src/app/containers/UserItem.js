@@ -20,27 +20,27 @@ const UserItem = (props) => {
       :
       <Form >
         <Input
-          value={props.id || ''}
+          value={props.id || 'нет значения'}
           placeholder="ID"
           disabled='none'
         />
         <Input
-          value={props.username || ''} 
+          value={props.username || 'нет значения'} 
           placeholder="user name"
           disabled='none'
         />
         <Input
-          value={props.first_name || ''} 
+          value={props.first_name || 'нет значения'} 
           placeholder="first name"
           disabled='none'
         />
         <Input
-          value={props.last_name || ''} 
+          value={props.last_name || 'нет значения'} 
           placeholder="last name"
           disabled='none'
         />
         <Input
-          value={props.last_login || ''}
+          value={props.last_login || 'нет значения'}
           placeholder="last login"
           disabled='none'
         />
