@@ -60,7 +60,7 @@ function EditForm(props){
         <Button
           type="submit"
           title="Save"
-          disabled={
+          isActive={
             !userName.inputValid || 
             !lastName.inputValid || 
             !firstName.inputValid ||
