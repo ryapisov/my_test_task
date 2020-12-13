@@ -7,53 +7,29 @@ import Auth from '../app/containers/Auth'
 import UserList from '../app/containers/UserList'
 import NewUser from '../app/containers/NewUser'
 import Search from '../app/containers/Search'
-
-const Wrapper = styled.div`
-  width: 100%; 
-  font-family: 'Noto Sans', sans-serif;
-  background-color: #333;
-  color:#fff;
-`
-const Section = styled.div`
-  font-family: 'Noto Sans', sans-serif;
-  padding:20px 0;
-  text-align:center;
-`
-const H2 = styled.div`
-  font-size: 30px;
-  font-weight:700;
-  font-family: 'Marck Script', sans-serif;
-  a{
-    margin-left: 16px;
-    color:#9bb9c4;
-    &:hover{
-      color: #fff;
-      cursor:pointer;
-    }
-  }
-`
+import {Wrapper, Section} from '../app/components'
 
 function App() {
   return (
     <Provider store={store}>
       <Wrapper>
         <Section> 
-          <H2>
+          <h2>
             Тестовое задание в компанию 
             <a href="https://emphasoft.com">Emphasoft</a>
-          </H2>
+          </h2>
         </Section>
         <Section>
           {true && <Auth />}
         </Section>
         <Section>
-          {true && <NewUser />}
+          {false && <NewUser />}
         </Section>
         <Section>
-          {true && <Search />}
+          {false && <Search />}
         </Section>
         <Section>
-          {true && <UserList />}
+          {false && <UserList />}
         </Section>
       </Wrapper>
     </Provider>
