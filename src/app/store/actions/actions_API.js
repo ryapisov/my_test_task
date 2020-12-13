@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {
+  GET_TOKEN,
   ADD_MANY_USERS,
   URL_PATH_USERS,
   URL_PATH_ROOT,
@@ -116,9 +117,9 @@ export const getToken_API = ({username, password}) => async dispatch => {
     if(res.status === 200) {
       dispatch({type:GET_TOKEN, payload:res.data})
     }  
-    dispatch(isStatusLoading(false))
+  //  dispatch(isStatusLoading(false))
   }catch(err){
     alert('SERVER err' + err)
-    dispatch(isStatusLoading(false))
+  //  dispatch(isStatusLoading(false))
   }
 }
