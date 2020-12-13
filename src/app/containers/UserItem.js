@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import iconEditSvg from '../icons/edit.svg'
-import {Input, Form, Notice,  Button} from '../components'
+import {Input, Form, Button} from '../components'
 import EditForm from './EditForm'
 
 const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
 
-   console.log(props)
   return(
     <>
      {
@@ -47,7 +46,7 @@ const UserItem = (props) => {
         <Button
           title="Edit"
           onClick={()=>setIsEdit(!isEdit)} 
-        ><img src={iconEditSvg} />
+        ><img src={iconEditSvg} alt="" />
         </Button>
      </Form>
      }
