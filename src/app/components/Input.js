@@ -13,4 +13,10 @@ export default styled.input`
   ::-webkit-input-placeholder {
     color: #333;
   }
+  @media screen and (min-width:240px) and (max-width:615px) {
+    display: block;
+    margin: 10px auto;
+    min-width:240px;
+  }
+
 `

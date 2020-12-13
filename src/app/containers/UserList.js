@@ -7,7 +7,7 @@ import iconEditSvg from '../icons/edit.svg'
 import iconSaveSvg from '../icons/save.svg'
 import iconDeleteSvg from '../icons/delete.svg'
 import iconCloseSvg from '../icons/close.svg'
-import {Input, Form, Button} from '../components'
+import {Input, Form, Notice,  Button} from '../components'
 
 function UserItem(props){
   const [isEdit, setIsEdit] = useState(false)
@@ -31,7 +31,10 @@ function UserItem(props){
   }
   return(
     <Form onSubmit={(e)=> updateUserFormHandler(e)}>
-      <span>{props.id}</span>
+      {userName.isDirty && userName.message && <Notice>{userName.message}</Notice>}
+      {firstName.isDirty && firstName.message && <Notice>{firstName.message}</Notice>}
+      {lastName.isDirty && lastName.message && <Notice>{lastName.message}</Notice>}
+      <span>ID:{props.id}</span>
       <span>{time}</span>
       <input type="hidden" name="userId" value={props.id} />
       <Input

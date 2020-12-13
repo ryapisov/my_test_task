@@ -34,6 +34,7 @@ function NewUser() {
 
   return (
     <>
+      <h3>Дабавить пользователя</h3>
       {
       isShowForm 
       ? 
@@ -45,12 +46,11 @@ function NewUser() {
         </Button>
       :
         <form onSubmit={submitHandler}>
-          <h3>Дабавить пользователя</h3>
-          {<Notice display={userName.isDirty && userName.message}>{userName.message}</Notice>}
-          {<Notice display={firstName.isDirty && firstName.message}>{firstName.message}</Notice>}
-          {<Notice display={lastName.isDirty && lastName.message}>{lastName.message}</Notice>}
-          {<Notice display={password.isDirty && password.message}>{password.message}</Notice>}
-          {<Notice display={false}>Загрузка...</Notice>}
+          {userName.isDirty && userName.message && <Notice>{userName.message}</Notice>}
+          {firstName.isDirty && firstName.message && <Notice>{firstName.message}</Notice>}
+          {lastName.isDirty && lastName.message && <Notice>{lastName.message}</Notice>}
+          {password.isDirty && password.message && <Notice>{password.message}</Notice>}
+          { false && <Notice>Загрузка...</Notice>}
           <Input
             value={userName.value} 
             onBlur={(e)=> userName.onBlur(e)}

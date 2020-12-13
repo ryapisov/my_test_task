@@ -16,4 +16,9 @@ export default styled.button`
   &:hover{
     background:${p => p.isActive ? '#7ec4ce' : '#218ea1' };
   }
+  @media (max-width: 720px) {
+    min-width:30%;
+    margin-top:0px;
+    min-width:12%;
+  }
 `

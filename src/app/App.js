@@ -14,22 +14,18 @@ function App() {
     <Provider store={store}>
       <Wrapper>
         <Section> 
-          <h2>
-            Тестовое задание в компанию 
+          <h2>Тестовое задание в компанию 
             <a href="https://emphasoft.com">Emphasoft</a>
           </h2>
         </Section>
-        <Section>
+        <Section> 
           {true && <Auth />}
         </Section>
         <Section>
-          {false && <NewUser />}
-        </Section>
-        <Section>
-          {false && <Search />}
-        </Section>
-        <Section>
-          {false && <UserList />}
+          {true && <NewUser />}
+          </Section>
+          <Section>
+          {true && <UserList />}
         </Section>
       </Wrapper>
     </Provider>

@@ -26,9 +26,9 @@ function Auth() {
   return (
     <form onSubmit={(e)=>submitHandler(e)}>
       <h3>Вход</h3>
-      {<Notice display={userName.isDirty && userName.message}>{userName.message}</Notice>}
-      {<Notice display={password.isDirty && userName.message}>{password.message}</Notice>}
-      {<Notice display={false}>загрузка...</Notice>}
+      {userName.isDirty && userName.message && <Notice>{userName.message}</Notice>}
+      {password.isDirty && userName.message && <Notice>{password.message}</Notice>}
+      { false && <Notice>Загрузка...</Notice>}
       <Input
         value={userName.value} 
         onBlur={(e)=> userName.onBlur(e)}

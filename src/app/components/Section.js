@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export default styled.div`
   font-family: 'Noto Sans', sans-serif;
-  padding:20px 0;
+  padding:5px 0;
   text-align:center;
+  background:#333;
   & h2 {
     font-size: 30px;
     font-weight:700;

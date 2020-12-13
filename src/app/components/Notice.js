@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  display: ${(p) => p.display ? 'block' : 'none'};
   padding: 14px 0;
   max-width: 540px;
   margin: 0 auto;
