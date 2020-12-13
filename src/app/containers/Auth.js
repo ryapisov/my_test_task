@@ -7,7 +7,6 @@ import {getToken_API, isStatusLoading} from '../store/actions/actions_API'
 
 function Auth() {
   const dispatch = useDispatch()
-  const store = useSelector(state => state.auth)
   const userName = useInputValidation('test_super', configValid.userName)
   const password = useInputValidation('Nf<U4f<rDbtDxAPn', configValid.password)
 
@@ -16,7 +15,7 @@ function Auth() {
     // // установить индикатор загрузки
     // dispatch(isStatusLoading(true))
     // // отправить данные на сервер
-    // dispatch(getTokenAPI({username:userName.value, password:password.value}))
+     dispatch(getToken_API({username:userName.value, password:password.value}))
     // // записать токен в хранилище
     // setTokenLocalStorage(store.token)
 

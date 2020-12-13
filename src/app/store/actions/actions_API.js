@@ -20,7 +20,7 @@ export const getUsers_API = (token) => async dispatch => {
       }
     })
     if(res.status === 200) {
-      dispatch({type:ADD_MANY_USERS, payload:res.data})
+       dispatch({type:ADD_MANY_USERS, payload:res.data})
     }
   }catch(err){
     alert('SERVER err' + err)

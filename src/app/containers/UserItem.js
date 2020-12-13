@@ -6,11 +6,12 @@ import EditForm from './EditForm'
 const UserItem = (props) => {
   const [isEdit, setIsEdit] = useState(false)
 
+   console.log(props)
   return(
     <>
      {
       isEdit 
-      ? <EditForm 
+      ? <EditForm {...props}
           onClick={()=>setIsEdit(!isEdit)} 
             submitUpdateFormHandler={props.submitUpdateFormHandler}
             submitDeleteFormHandler={props.submitDeleteFormHandler}
@@ -19,28 +20,28 @@ const UserItem = (props) => {
       :
       <Form >
         <Input
-          value={'3'}
+          value={props.id || ''}
           placeholder="ID"
           disabled='none'
         />
         <Input
-          value={props.lastLogin}
-          placeholder="last login"
-          disabled='none'
-        />
-        <Input
-          value={props.userName} 
+          value={props.username || ''} 
           placeholder="user name"
           disabled='none'
         />
         <Input
-          value={props.firstName} 
+          value={props.first_name || ''} 
           placeholder="first name"
           disabled='none'
         />
         <Input
-          value={props.lastName} 
+          value={props.last_name || ''} 
           placeholder="last name"
+          disabled='none'
+        />
+        <Input
+          value={props.last_login || ''}
+          placeholder="last login"
           disabled='none'
         />
         <Button

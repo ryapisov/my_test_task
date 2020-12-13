@@ -19,7 +19,7 @@ function App() {
         {
           isAuth
           ? 
-          <>
+          <><Auth />
             <Section><Search /></Section>
             <Section><NewUser /></Section>
             <Section><UserList /></Section>
