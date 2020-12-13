@@ -2,7 +2,7 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useInputValidation} from '../hooks/useInputValidation'
 import {configValid} from '../configs/configValid'
-import {Input, Notice,  Button} from '../style'
+import {Input, Notice,  Button} from '../components'
 import {getTokenAPI, isStatusLoading} from '../store/actions/authActions'
 
 function Auth() {

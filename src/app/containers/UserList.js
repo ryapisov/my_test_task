@@ -7,7 +7,7 @@ import iconEditSvg from '../icons/edit.svg'
 import iconSaveSvg from '../icons/save.svg'
 import iconDeleteSvg from '../icons/delete.svg'
 import iconCloseSvg from '../icons/close.svg'
-import {Input, Form, Button} from '../style'
+import {Input, Form, Button} from '../components'
 
 function UserItem(props){
   const [isEdit, setIsEdit] = useState(false)

@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import 'normalize.css'
 import {Provider} from 'react-redux'
 import {store} from './store'
-import Auth from '../app/components/Auth'
-import UserList from '../app/components/UserList'
-import NewUser from '../app/components/NewUser'
-import Search from '../app/components/Search'
+import Auth from '../app/containers/Auth'
+import UserList from '../app/containers/UserList'
+import NewUser from '../app/containers/NewUser'
+import Search from '../app/containers/Search'
 
 const Wrapper = styled.div`
   width: 100%; 
