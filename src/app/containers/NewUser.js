@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import styled from 'styled-components'
 import {useInputValidation} from '../hooks/useInputValidation'
 import {createNewUser_API} from '../store/actions/actions_API'
 import {configValid} from '../configs/configValid'

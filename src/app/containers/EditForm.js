@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {useInputValidation} from '../hooks/useInputValidation'
 import {configValid} from '../configs/configValid'
 // import {useDispatch, useSelector} from 'react-redux'
@@ -15,7 +15,7 @@ const EditForm = (props) => {
   const lastName = useInputValidation(props.last_name || '', configValid.lastName)
   const firstName = useInputValidation(props.first_name ||'', configValid.firstName)
   const password = useInputValidation(props.password || '', configValid.password)
-  const time = new Date().getFullYear()
+  // const time = new Date().getFullYear()
 
   return(
     <>
