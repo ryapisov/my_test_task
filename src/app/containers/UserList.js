@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {getUsersAPI} from '../store/actions/usersActions'
+import {getUsers_API} from '../store/actions/actions_API'
 import UserItem from './UserItem'
 
 const UserList = () => {
@@ -19,7 +19,7 @@ const UserList = () => {
   }
 
   useEffect(()=>{
-    dispatch(getUsersAPI())
+    dispatch(getUsers_API())
   }, [dispatch])
 
   return (

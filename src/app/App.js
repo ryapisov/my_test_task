@@ -6,7 +6,7 @@ import {Auth, NewUser, Search, UserList } from '../app/containers'
 import {Wrapper, Section} from '../app/components'
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(true)
 
   return (
     <Provider store={store}>

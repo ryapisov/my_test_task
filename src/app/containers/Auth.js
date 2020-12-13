@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useInputValidation} from '../hooks/useInputValidation'
 import {configValid} from '../configs/configValid'
 import {Input, Notice,  Button} from '../components'
-import {getTokenAPI, isStatusLoading} from '../store/actions/authActions'
+import {getToken_API, isStatusLoading} from '../store/actions/actions_API'
 
 function Auth() {
   const dispatch = useDispatch()

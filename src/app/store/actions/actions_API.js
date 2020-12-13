@@ -1,17 +1,16 @@
 import axios from 'axios'
 import {
   ADD_MANY_USERS,
-  SORT_BY_ID
+  URL_PATH_USERS,
+  URL_PATH_ROOT,
+  URL_PROTOCOL,
+  URL_PATH_TOKEN
 } from '../types'
 
-const PATH = 'api/v1/users/'
-const PROTOCOL = 'http://'
-const ROOT_URL = 'emphasoft-test-assignment.herokuapp.com/'
-
-export const getUsersAPI = (token) => async dispatch => {
+export const getUsers_API = (token) => async dispatch => {
   try {
     const res = await axios({
-      url: PROTOCOL + ROOT_URL + PATH,
+      url: URL_PROTOCOL + URL_PATH_ROOT + URL_PATH_USERS,
       method: 'get',
       timeout: 8000,
       headers: {
@@ -27,11 +26,11 @@ export const getUsersAPI = (token) => async dispatch => {
   }
 }
 
-export const createNewUserAPI = (userData) => async dispatch => {
+export const createNewUser_API = (userData) => async dispatch => {
 //  console.log(userData)
   try {
     const res = await axios({
-      url: PROTOCOL + ROOT_URL + PATH,
+      url: URL_PROTOCOL + URL_PATH_ROOT + URL_PATH_USERS,
       method: 'post',
       timeout: 8000,
       headers: {
@@ -55,10 +54,10 @@ export const createNewUserAPI = (userData) => async dispatch => {
   }
 }
 
-export const deleteUserAPI = (id) => async dispatch => {
+export const deleteUser_API = (id) => async dispatch => {
   try {
     const res = await axios({
-      url: PROTOCOL + ROOT_URL + PATH + id,
+      url: URL_PROTOCOL + URL_PATH_ROOT + URL_PATH_USERS + id,
       method: 'delete',
       timeout: 8000,
       headers: {
@@ -74,10 +73,10 @@ export const deleteUserAPI = (id) => async dispatch => {
   }
 }
 
-export const updateUserAPI = (id, userData) => async dispatch => {
+export const updateUser_API = (id, userData) => async dispatch => {
   try {
     const res = await axios({
-      url: PROTOCOL + ROOT_URL + PATH + id,
+      url: URL_PROTOCOL + URL_PATH_ROOT + URL_PATH_USERS + id,
       method: 'patch',
       timeout: 8000,
       headers: {
@@ -100,4 +99,26 @@ export const updateUserAPI = (id, userData) => async dispatch => {
   }
 }
 
-export const rewriteUsers = (payload) => ({type:SORT_BY_ID, payload})
+export const getToken_API = ({username, password}) => async dispatch => {
+  try {
+    const res = await axios({
+      url: URL_PROTOCOL + URL_PATH_ROOT + URL_PATH_TOKEN,
+      method: 'post',
+      timeout: 6000,
+      headers: {
+        'Content-Type':'application/json',
+      },
+      data:{
+        username,
+        password
+      }
+    })
+    if(res.status === 200) {
+      dispatch({type:GET_TOKEN, payload:res.data})
+    }  
+    dispatch(isStatusLoading(false))
+  }catch(err){
+    alert('SERVER err' + err)
+    dispatch(isStatusLoading(false))
+  }
+}

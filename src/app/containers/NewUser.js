@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {useInputValidation} from '../hooks/useInputValidation'
-import {createNewUserAPI} from '../store/actions/usersActions'
+import {createNewUser_API} from '../store/actions/actions_API'
 import {configValid} from '../configs/configValid'
 import {useDispatch, useSelector} from 'react-redux'
 import iconSaveSvg from '../icons/save.svg'
