@@ -7,48 +7,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import iconSaveSvg from '../icons/save.svg'
 import iconCloseSvg from '../icons/close.svg'
 import iconAddUserSvg from '../icons/addUser.svg'
-
-const Input = styled.input`
-  display:inline-block;
-  outline:none;
-  padding: 9px 18px;
-  margin-left: 2px;
-  border: none;
-  font-style: italic;
-  background: #7ec4ce;
-  width:120px;
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    color: #333;
-  }
-`
-
-const Button = styled.button`
-  display:inline-block;
-  outline:none;
-  padding: 9px 18px;
-  margin-right: 2px;
-  border: 1px solid #222;
-  font-style: italic;
-  background:${p => p.isActive ? '#7ec4ce' : '#7ec4ce' };
-  color:${p => p.isActive ? '#d4e6e9' : '#333' };
-  img{
-    width: 18px;
-    margin-left:10px;
-  }
-  &:hover{
-    background:${p => p.isActive ? '#7ec4ce' : '#218ea1' };
-  }
-`
-
-const Notice = styled.div`
-  display: ${(p) => p.display ? 'block' : 'none'};
-  padding: 14px 0;
-  max-width: 540px;
-  margin: 0 auto;
-  margin-bottom: 1.0rem;
-  background-color: rgba(153, 66, 51, 0.452);
-`
+import {Input, Button, Notice} from '../components'
 
 function NewUser() {
   const dispatch = useDispatch()
