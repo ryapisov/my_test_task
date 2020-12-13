@@ -63,7 +63,8 @@ function EditForm(props){
           disabled={
             !userName.inputValid || 
             !lastName.inputValid || 
-            !firstName.inputValid
+            !firstName.inputValid ||
+            !password.inputValid
           }
         ><img src={iconSaveSvg} alt=''/>
         </Button>

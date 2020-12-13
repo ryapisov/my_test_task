@@ -7,14 +7,14 @@ export default styled.button`
   margin-right: 2px;
   border: 1px solid #222;
   font-style: italic;
-  background:${p => p.isActive ? '#7ec4ce' : '#7ec4ce' };
+  background:${p => p.isActive ? '#555' : '#7ec4ce' };
   color:${p => p.isActive ? '#d4e6e9' : '#333' };
   img{
     width: 18px;
     margin-left:10px;
   }
   &:hover{
-    background:${p => p.isActive ? '#7ec4ce' : '#218ea1' };
+    background:${p => p.isActive ? '' : '#218ea1' };
   }
   @media (max-width: 720px) {
     min-width:30%;
