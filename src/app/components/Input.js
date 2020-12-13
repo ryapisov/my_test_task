@@ -19,5 +19,4 @@ export default styled.input`
     margin: 10px auto;
     min-width:240px;
   }
-
 `

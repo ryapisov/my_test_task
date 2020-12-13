@@ -9,10 +9,16 @@ const UserItem = (props) => {
   return(
     <>
      {
-      isEdit ? <EditForm onClick={()=>setIsEdit(!isEdit)} {...props}/>      
+      isEdit 
+      ? <EditForm 
+          onClick={()=>setIsEdit(!isEdit)} 
+            submitUpdateFormHandler={props.submitUpdateFormHandler}
+            submitDeleteFormHandler={props.submitDeleteFormHandler}
+          {...props}
+        />      
       :
       <Form >
-         <Input
+        <Input
           value={'3'}
           placeholder="ID"
           disabled='none'

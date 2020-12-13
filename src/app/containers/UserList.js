@@ -7,6 +7,17 @@ const UserList = () => {
   const dispatch = useDispatch()
   const users = useSelector((state)=> state.users.users )
 
+  const submitUpdateFormHandler = (e) =>{
+    e.preventDefault()
+
+    alert('обновить')
+  }
+  const submitDeleteFormHandler = (e) =>{
+    e.preventDefault()
+
+    alert('удалить')
+  }
+
   useEffect(()=>{
     dispatch(getUsersAPI())
   }, [dispatch])
@@ -14,7 +25,14 @@ const UserList = () => {
   return (
     <>
       <h3>Список пользователей</h3>
-      {users.map((user, i)=> <UserItem key={i} {...user} />)}
+      {
+        users.map((user, i)=> 
+          <UserItem key={i} {...user} 
+            submitUpdateFormHandler={submitUpdateFormHandler}
+            submitDeleteFormHandler={submitDeleteFormHandler}
+          />
+        )
+      }
     </>
   )
 }
